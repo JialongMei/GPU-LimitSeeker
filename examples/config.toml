@@ -1,0 +1,41 @@
+# Copy outside the checkout and edit. No credentials or machine-specific paths.
+# First baseline must match the existing profile; it is NOT reset to these values.
+[hardware]
+allow_afterburner_handoff = false
+# gao_path = 'D:\GPU-Tools\gao.exe'
+# memtest_path = 'D:\GPU-Tools\memtest_vulkan-v0.5.0.exe'
+# nvidia_icd is normally discovered from the active driver.
+
+[safety]
+max_temp_c = 80
+power_percent = 100
+max_power_percent = 100
+max_recoveries = 2
+max_hours = 24
+# Above-default power additionally requires max_board_power_w, real driver support,
+# and --allow-above-default-power. A PSU label alone does not establish safety.
+
+[search]
+power_limits = [100]
+core_step = 30
+core_resolution = 15
+mem_step = 100
+mem_resolution = 50
+curve_step = 30
+curve_resolution = 15
+anchors_mv = [1000, 1025, 1050]
+objective = "clock_limit"
+max_long_attempts = 8
+
+[durations.long]
+full_seconds = 3600
+half_seconds = 600
+vram_seconds = 3600
+
+[ai]
+provider = "openai"
+model = "YOUR_PROVIDER_MODEL_ID"
+base_url = "https://api.openai.com/v1"
+api_key_env = "GPU_LIMITSEEKER_API_KEY"
+timeout_seconds = 120
+max_attempts = 2

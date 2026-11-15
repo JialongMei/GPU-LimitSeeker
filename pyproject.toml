@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gpu-limitseeker"
+version = "0.1.0a1"
+description = "AI-reviewed, evidence-driven GPU limit exploration with explicit power and safety envelopes"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+authors = [{name = "Jialong Mei"}]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Operating System :: Microsoft :: Windows",
+  "Programming Language :: Python :: 3",
+  "Topic :: System :: Hardware",
+]
+
+[project.scripts]
+gpu-limitseeker = "gpu_limitseeker.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/JialongMei/GPU-LimitSeeker"
+Issues = "https://github.com/JialongMei/GPU-LimitSeeker/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools]
+include-package-data = false
